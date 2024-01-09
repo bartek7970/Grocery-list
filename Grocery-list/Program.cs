@@ -2,12 +2,13 @@
 
 
 
- void Menu()
+ static void Menu()
 {
     Console.WriteLine("Welcome in Grocery lis");
-    var flag = true;
+    var flag = false;
     List<Product> products = new List<Product>();
-    while (flag)
+   
+    while (flag == false)
     {
         Console.WriteLine("Choose option");
         Console.WriteLine("1:Open new grocery list");
@@ -19,6 +20,7 @@
             case 1:
                 {
                     products.RemoveRange(0, products.Count);
+                   
                     break;
                 }
 
@@ -39,3 +41,5 @@
         }
     }
 }
+
+Menu();
