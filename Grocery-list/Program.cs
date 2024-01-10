@@ -1,12 +1,21 @@
 ﻿using Grocery_list;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
-
-
- static void Menu()
+ProductsList LoadList( ProductsList list)
 {
+    var deserialiazedProduct = File.ReadAllText(@"C:\Users\barte\source\repos\Grocery-list\Grocery-list\JSON\ProductsDatabaseList.json");
+    list = JsonConvert.DeserializeObject<ProductsList>(deserialiazedProduct);
+    return list;
+    
+}   
+
+ static void Menu(ProductsList list)
+{
+  
+
     Console.WriteLine("Welcome in Grocery lis");
     var flag = false;
-   // List<Product> products = new List<Product>();
     List<Product> groceryList = new List<Product>();
     while (flag == false)
     {
@@ -27,14 +36,17 @@
 
                 case "2": 
                 {
-                    groceryList.Add(new Product(1, "Sugar", 3.20));
-                    groceryList.Add(new Product(2, "Salt", 1.40));
-                    groceryList.Add(new Product(3, "Apple", 2.80));
+                    for (int i = 0; i < list.productsList.Count; i++)
+                    {
+                        groceryList[i]= list.productsList[i];
+                        Console.WriteLine($"{groceryList[i].Name} {groceryList[i].PriceInPLN} PLN ");
+                    }
+                    
                     break;
 
                 }
 
-            case 3:
+            case "3":
                 {
                 
                     for(int i = 0; i < groceryList.Count; i++)
@@ -46,7 +58,7 @@
                     break;
                 }
 
-            case 4:
+            case "4":
                 {
                     flag = true;
                     break;
@@ -55,11 +67,13 @@
                 
 
 
-            default: throw new Exception("Bad option");
+            default:
+                break;
                 
         }
     }
 }
 
-Menu();
-var lista = new ProductsDatabaseList();
+ProductsList productsList = LoadList(new ProductsList());
+
+//Menu(productsList);

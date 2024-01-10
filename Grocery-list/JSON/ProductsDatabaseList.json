@@ -1,5 +1,14 @@
 ﻿{
-  "Id": 1,
-  "Name": "Apple",
-  "PriceInPLN": 2.30
+  "listOfProducts": [
+    {
+      "Id": 1,
+      "Name": "Apple",
+      "PriceInPLN": 2.30
+    },
+    {
+      "Id": 2,
+      "Name": "Peach",
+      "PriceInPLN": 1.30
+    }
+  ]
 }
