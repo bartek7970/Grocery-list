@@ -7,37 +7,56 @@
     Console.WriteLine("Welcome in Grocery lis");
     var flag = false;
     List<Product> products = new List<Product>();
-   
+    List<Product> groceryList = new List<Product>();
     while (flag == false)
     {
+        Console.WriteLine();
         Console.WriteLine("Choose option");
-        Console.WriteLine("1:Open new grocery list");
+        Console.WriteLine("1:New grocery list");
         Console.WriteLine("2:Check products list");
-        Console.WriteLine("3:Exit");
+        Console.WriteLine("3:Check your grocery list");
+        Console.WriteLine("4:Exit");
         int input = int.Parse(Console.ReadLine());
         switch(input)
         {
             case 1:
                 {
-                    products.RemoveRange(0, products.Count);
-                   
+                    groceryList.Clear();
                     break;
                 }
 
                 case 2: 
                 {
-                    Console.WriteLine("E");
+                    groceryList.Add(new Product(1, "Sugar", 3.20));
+                    groceryList.Add(new Product(2, "Salt", 1.40));
+                    groceryList.Add(new Product(3, "Apple", 2.80));
                     break;
 
                 }
 
             case 3:
-
+                {
                 
-                break;
+                    for(int i = 0; i < groceryList.Count; i++)
+                    {
+                        
+                        Console.WriteLine($"{ groceryList[i].Name} {groceryList[i].PriceInPLN} PLN");
+                    }
+
+                    break;
+                }
+
+            case 4:
+                {
+                    flag = true;
+                    break;
+                    
+                }
+                
 
 
             default: throw new Exception("Bad option");
+                
         }
     }
 }

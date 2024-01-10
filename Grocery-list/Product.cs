@@ -8,15 +8,15 @@ namespace Grocery_list
 {
     internal class Product
     {
-        public  Product(int id, string name, double price)
+        public  Product(int id, string name, double priceInPLN)
         {
             Id = id;
             Name = name;
-            Price = price;
+            PriceInPLN = priceInPLN;
         }
-        protected int Id { get; set; }
+        private int Id { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
+        public double PriceInPLN { get; set; }
 
     }
 }
