@@ -6,7 +6,7 @@
 {
     Console.WriteLine("Welcome in Grocery lis");
     var flag = false;
-    List<Product> products = new List<Product>();
+   // List<Product> products = new List<Product>();
     List<Product> groceryList = new List<Product>();
     while (flag == false)
     {
@@ -16,16 +16,16 @@
         Console.WriteLine("2:Check products list");
         Console.WriteLine("3:Check your grocery list");
         Console.WriteLine("4:Exit");
-        int input = int.Parse(Console.ReadLine());
+        var input = Console.ReadLine();
         switch(input)
         {
-            case 1:
+            case "1":
                 {
                     groceryList.Clear();
                     break;
                 }
 
-                case 2: 
+                case "2": 
                 {
                     groceryList.Add(new Product(1, "Sugar", 3.20));
                     groceryList.Add(new Product(2, "Salt", 1.40));
@@ -62,3 +62,4 @@
 }
 
 Menu();
+var lista = new ProductsDatabaseList();
