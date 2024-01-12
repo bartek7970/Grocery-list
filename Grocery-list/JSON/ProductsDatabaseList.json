@@ -9,6 +9,11 @@
       "Id": 2,
       "Name": "Peach",
       "PriceInPLN": 1.30
+    },
+    {
+      "Id": 3,
+      "Name": "Orange",
+      "PriceInPLN": 4.15
     }
   ]
 }
