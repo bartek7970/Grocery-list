@@ -14,6 +14,7 @@ namespace Grocery_list
         [JsonProperty("listOfProducts")]
         public List<Product> productsList { get; set; }
 
+        
         //zamiast case 3?
         /* public ProductsList deleteProduct(string name, ProductsList productsDatabasex)
            {
