@@ -54,45 +54,45 @@ namespace Grocery_list
                                 Console.WriteLine("4:Back to menu");
 
                                 n = int.Parse(Console.ReadLine());
-                                switch (n)
-                                {
-                                    case 1:
+                                        switch (n)
                                         {
-                                            Console.WriteLine("Insert name of product");
-                                            string nameOfProduct = Console.ReadLine();
-                                            groceryList.Add(productDatabase.FirstOrDefault(n => n.Name == nameOfProduct));
-                                            break;
-                                        }
-                                    case 2:
-                                        {
-                                            Console.WriteLine("Insert name of produt");
-                                            string nameOfProductToAdd = Console.ReadLine();
-                                            Console.WriteLine("Insert price of produt");
-                                            double priceOfProtuctToAdd = double.Parse(Console.ReadLine());
-                                            productDatabase.Add(new Product(productDatabase.Count + 1, nameOfProductToAdd, priceOfProtuctToAdd));
-                                            break;
-                                        }
-                                    case 3:
-                                        {
-                                            Console.WriteLine("Insert name of product to delete");
-                                            string nameOfProductToDelete = Console.ReadLine();
-                                            productDatabase.Remove(productDatabase.FirstOrDefault(p => p.Name == nameOfProductToDelete));
-                                            Console.WriteLine(productDatabase.Count);
-                                            break;
+                                            case 1:
+                                                {
+                                                    Console.WriteLine("Insert name of product");
+                                                    string nameOfProduct = Console.ReadLine();
+                                                    groceryList.Add(productDatabase.FirstOrDefault(n => n.Name == nameOfProduct));
+                                                    break;
+                                                }
+                                            case 2:
+                                                {
+                                                    Console.WriteLine("Insert name of produt");
+                                                    string nameOfProductToAdd = Console.ReadLine();
+                                                    Console.WriteLine("Insert price of produt");
+                                                    double priceOfProtuctToAdd = double.Parse(Console.ReadLine());
+                                                    productDatabase.Add(new Product(productDatabase.Count + 1, nameOfProductToAdd, priceOfProtuctToAdd));
+                                                    break;
+                                                }
+                                            case 3:
+                                                {
+                                                    Console.WriteLine("Insert name of product to delete");
+                                                    string nameOfProductToDelete = Console.ReadLine();
+                                                    productDatabase.Remove(productDatabase.FirstOrDefault(p => p.Name == nameOfProductToDelete));
+                                                    Console.WriteLine(productDatabase.Count);
+                                                    break;
 
 
-                                        }
+                                                }
 
-                                    case 4:
-                                        {
-                                            n = -1;
-                                            break;
-                                        }
-                                    default:
+                                            case 4:
+                                                {
+                                                    n = -1;
+                                                    break;
+                                                }
+                                            default:
 
-                                        Console.WriteLine("\n Wrong number ");
-                                        break;
-                                }
+                                                Console.WriteLine("\n Wrong number ");
+                                                break;
+                                        }
                             }
                             break;
                         }
