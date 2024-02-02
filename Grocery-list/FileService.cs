@@ -9,20 +9,36 @@ namespace Grocery_list
 {
     public static class FileService
     {
+        private const string ProductsDatabaseFilePath = @"JSON\ProductsDatabaseList.json";
+        private const string GroceryListFilePath = @"JSON\groceryList.json";
 
-      public static ProductsList LoadList()
+        public static ProductsList LoadProductsDatabase()
         {
-            var deserialiazedProduct = File.ReadAllText(@"C:\Users\barte\source\repos\Grocery-list\Grocery-list\JSON\ProductsDatabaseList.json");
-            var list = JsonConvert.DeserializeObject<ProductsList>(deserialiazedProduct);
-            return list;
-
+            try
+            {
+                string json = File.ReadAllText(ProductsDatabaseFilePath);
+                return JsonConvert.DeserializeObject<ProductsList>(json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while loading the products database: {ex.Message}");
+                return null;
+            }
         }
 
-       public static void SaveList(List<Product> product1)
+        public static void SaveGroceryList(List<Product> groceryList)
         {
-            var serializedProduct = JsonConvert.SerializeObject(product1);
-            File.WriteAllText(@"C:\Users\barte\source\repos\Grocery-list\Grocery-list\JSON\groceryList.json", serializedProduct);
-
+            try
+            {
+                string json = JsonConvert.SerializeObject(groceryList);
+                File.WriteAllText(GroceryListFilePath, json);
+                Console.WriteLine("Grocery list saved successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while saving the grocery list: {ex.Message}");
+            }
         }
     }
+ 
 }

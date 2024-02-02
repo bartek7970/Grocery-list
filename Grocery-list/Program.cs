@@ -5,5 +5,5 @@ using System.Net.Http.Headers;
 
 
 ProductsList productsList = new ProductsList();
- productsList = FileService.LoadList();
+ productsList = FileService.LoadProductsDatabase();
 Menu.ProductcsMenu(productsList);

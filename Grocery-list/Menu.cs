@@ -57,10 +57,18 @@ namespace Grocery_list
                                         switch (n)
                                         {
                                             case 1:
-                                                {
-                                                    Console.WriteLine("Insert name of product");
-                                                    string nameOfProduct = Console.ReadLine();
-                                                    groceryList.Add(productDatabase.FirstOrDefault(n => n.Name == nameOfProduct));
+                                        {
+                                            Console.WriteLine("Insert name of product");
+                                            var nameOfProduct = Console.ReadLine();
+                                            var Selected_Product_If_It_Egxist = productDatabase.FirstOrDefault(n => n.Name == nameOfProduct);
+                                            if (Selected_Product_If_It_Egxist != null)
+                                            {
+                                                groceryList.Add(Selected_Product_If_It_Egxist);
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Produktu nie znaleziono");
+                                            }
                                                     break;
                                                 }
                                             case 2:
@@ -103,8 +111,7 @@ namespace Grocery_list
                             {
                                 for (int i = 0; i < groceryList.Count; i++)
                                 {
-
-                                    Console.WriteLine($"{groceryList[i].Name} {groceryList[i].PriceInPLN} PLN");
+                                         Console.WriteLine($"{groceryList[i].Name} {groceryList[i].PriceInPLN} PLN");
                                 }
                             }
                             else
@@ -129,7 +136,7 @@ namespace Grocery_list
 
                 }
             }
-            FileService.SaveList(groceryList);
+            FileService.SaveGroceryList(groceryList);
         }
     }
 }
