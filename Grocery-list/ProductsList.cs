@@ -14,8 +14,6 @@ namespace Grocery_list
         [JsonProperty("listOfProducts")]
         public List<Product> productsList { get; set; }
 
-        
-
     }
 
   

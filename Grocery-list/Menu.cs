@@ -6,137 +6,152 @@ using System.Threading.Tasks;
 
 namespace Grocery_list
 {
-    public static class Menu
-    {
-
-       public static void ProductcsMenu(ProductsList list)
+        public static class Menu
         {
-
-            Console.WriteLine("Welcome in Grocery lis");
-            var flag = false;
-            List<Product> groceryList = new List<Product>();
-            List<Product> productDatabase = new List<Product>();
-            productDatabase = list.productsList;
-            while (flag == false)
+            public static void ProductcsMenu(ProductsList list)
             {
-                Console.WriteLine();
-                Console.WriteLine("Choose option");
-                Console.WriteLine("1:New grocery list");
-                Console.WriteLine("2:Check products database");
-                Console.WriteLine("3:Check your grocery list");
-                Console.WriteLine("4:Exit");
-                var input = Console.ReadLine();
-                switch (input)
+                Console.WriteLine("Welcome in Grocery list");
+
+                var groceryList = new List<Product>();
+                var productDatabase = list.productsList;
+
+                while (true)
                 {
-                    case "1":
-                        {
+                    ShowMenuOptions();
+                    string input = Console.ReadLine();
+
+                    switch (input)
+                    {
+                        case "1":
                             groceryList.Clear();
                             break;
-                        }
-
-                    case "2":
-                        {
-                            int n = 0;
-
-                            while (n != -1)
-                            {
-                                Console.WriteLine();
-                                for (int i = 0; i < productDatabase.Count; i++)
-                                {
-                                    Console.WriteLine($"{productDatabase[i].Name} {productDatabase[i].PriceInPLN} PLN ");
-                                }
-                                Console.WriteLine();
-
-                                Console.WriteLine("Choose option");
-                                Console.WriteLine("1:Add product to grocery list");
-                                Console.WriteLine("2:Add product to products database");
-                                Console.WriteLine("3:Delete product");
-                                Console.WriteLine("4:Back to menu");
-
-                                n = int.Parse(Console.ReadLine());
-                                        switch (n)
-                                        {
-                                            case 1:
-                                        {
-                                            Console.WriteLine("Insert name of product");
-                                            var nameOfProduct = Console.ReadLine();
-                                            var Selected_Product_If_It_Egxist = productDatabase.FirstOrDefault(n => n.Name == nameOfProduct);
-                                            if (Selected_Product_If_It_Egxist != null)
-                                            {
-                                                groceryList.Add(Selected_Product_If_It_Egxist);
-                                            }
-                                            else
-                                            {
-                                                Console.WriteLine("Produktu nie znaleziono");
-                                            }
-                                                    break;
-                                                }
-                                            case 2:
-                                                {
-                                                    Console.WriteLine("Insert name of produt");
-                                                    string nameOfProductToAdd = Console.ReadLine();
-                                                    Console.WriteLine("Insert price of produt");
-                                                    double priceOfProtuctToAdd = double.Parse(Console.ReadLine());
-                                                    productDatabase.Add(new Product(productDatabase.Count + 1, nameOfProductToAdd, priceOfProtuctToAdd));
-                                                    break;
-                                                }
-                                            case 3:
-                                                {
-                                                    Console.WriteLine("Insert name of product to delete");
-                                                    string nameOfProductToDelete = Console.ReadLine();
-                                                    productDatabase.Remove(productDatabase.FirstOrDefault(p => p.Name == nameOfProductToDelete));
-                                                    Console.WriteLine(productDatabase.Count);
-                                                    break;
-
-
-                                                }
-
-                                            case 4:
-                                                {
-                                                    n = -1;
-                                                    break;
-                                                }
-                                            default:
-
-                                                Console.WriteLine("\n Wrong number ");
-                                                break;
-                                        }
-                            }
+                        case "2":
+                            ShowProductsDatabase(productDatabase);
+                            ProductDatabaseMenu(productDatabase, groceryList);
                             break;
-                        }
-
-                    case "3":
-                        {
-                            if (groceryList != null)
-                            {
-                                for (int i = 0; i < groceryList.Count; i++)
-                                {
-                                         Console.WriteLine($"{groceryList[i].Name} {groceryList[i].PriceInPLN} PLN");
-                                }
-                            }
-                            else
-                            {
-
-                                Console.WriteLine("Grocery list is null");
-                            }
-
+                        case "3":
+                            ShowGroceryList(groceryList);
                             break;
-                        }
-
-                    case "4":
-                        {
-                            flag = true;
+                        case "4":
+                            FileService.SaveGroceryList(groceryList);
+                            return;
+                        default:
+                            Console.WriteLine("\n Wrong option. Please choose again.");
                             break;
-
-                        }
-
-
-                    default:
-                        break;
-
+                    }
                 }
             }
-            FileService.SaveGroceryList(groceryList);
+
+            private static void ShowMenuOptions()
+            {
+                Console.WriteLine();
+                Console.WriteLine("Choose option:");
+                Console.WriteLine("1: New grocery list");
+                Console.WriteLine("2: Check products database");
+                Console.WriteLine("3: Check your grocery list");
+                Console.WriteLine("4: Exit");
+             }
+
+            private static void ShowProductsDatabase(List<Product> productDatabase)
+            {
+                Console.WriteLine("\nProducts Database:");
+                ShowDetailsProductsOfList(productDatabase);
+            }
+            private static void ProductDatabaseMenu(List<Product> productDatabase, List<Product> groceryList)
+                {
+                    while (true)
+                    {
+                        ShowProductsDatabase(productDatabase);
+                        Console.WriteLine();
+                        Console.WriteLine("Choose option:");
+                        Console.WriteLine("1: Add product to grocery list");
+                        Console.WriteLine("2: Add product to products database");
+                        Console.WriteLine("3: Delete product");
+                        Console.WriteLine("4: Back to menu");
+
+                        string input = Console.ReadLine();
+
+                        switch (input)
+                        {
+                            case "1":
+                                AddProductToGroceryList(productDatabase, groceryList);
+                                break;
+                            case "2":
+                                AddProductToDatabase(productDatabase);
+                                break;
+                            case "3":
+                                DeleteProductFromDatabase(productDatabase);
+                                break;
+                            case "4":
+                                return;
+                            default:
+                                Console.WriteLine("\n Wrong option. Please choose again.");
+                                break;
+                        }
+                    }
+                }
+
+            private static void AddProductToGroceryList(List<Product> productDatabase, List<Product> groceryList)
+            {
+                Console.WriteLine("Insert name of product");
+                string nameOfProduct = Console.ReadLine();
+                var selectedProduct = productDatabase.FirstOrDefault(p => p.Name == nameOfProduct);
+                if (selectedProduct != null)
+                {
+                    groceryList.Add(selectedProduct);
+                }
+                else
+                {
+                    Console.WriteLine("Product not found.");
+                }
+            }
+
+            private static void AddProductToDatabase(List<Product> productDatabase)     // dodać walidację danych wejściowych
+            {
+                Console.WriteLine("Insert name of product");
+                string nameOfProduct = Console.ReadLine();
+                Console.WriteLine("Insert price of product");
+                double priceOfProduct = double.Parse(Console.ReadLine());
+                productDatabase.Add(new Product(productDatabase.Count + 1, nameOfProduct, priceOfProduct));
+            }
+
+            private static void DeleteProductFromDatabase(List<Product> productDatabase)
+            {
+                Console.WriteLine("Insert name of product to delete");
+                string nameOfProductToDelete = Console.ReadLine();
+                var productToDelete = productDatabase.SingleOrDefault(p => p.Name == nameOfProductToDelete);
+                if (productToDelete != null)
+                {
+                    productDatabase.Remove(productToDelete);
+                    Console.WriteLine("Product deleted successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("Product not found.");
+                }
+            }
+
+            private static void ShowGroceryList(List<Product> groceryList)
+            {
+                if (groceryList.Any())
+                {
+                    Console.WriteLine("\nYour grocery list:");
+                    ShowDetailsProductsOfList(groceryList);
+                }
+                else
+                {
+                    Console.WriteLine("\nYour grocery list is empty.");
+                }
+            }
+
+        public static void ShowDetailsProductsOfList(List<Product> products)
+        {
+            foreach (var product in products)
+            {
+                Console.WriteLine($"{product.Name} {product.PriceInPLN} PLN");
+
+            }
         }
+        }
+
     }
-}
