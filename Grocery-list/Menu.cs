@@ -106,13 +106,21 @@ namespace Grocery_list
                 }
             }
 
-            private static void AddProductToDatabase(List<Product> productDatabase)     // dodać walidację danych wejściowych
+            private static void AddProductToDatabase(List<Product> productDatabase)     
             {
                 Console.WriteLine("Insert name of product");
                 string nameOfProduct = Console.ReadLine();
                 Console.WriteLine("Insert price of product");
-                double priceOfProduct = double.Parse(Console.ReadLine());
-                productDatabase.Add(new Product(productDatabase.Count + 1, nameOfProduct, priceOfProduct));
+                if (!double.TryParse(Console.ReadLine(), out double priceOfProduct))
+                {
+                    Console.WriteLine("Invalid price format. Please enter a valid number.");
+                    return;
+                }
+                else
+                {
+                    productDatabase.Add(new Product(productDatabase.Count + 1, nameOfProduct, priceOfProduct));
+                }
+            
             }
 
             private static void DeleteProductFromDatabase(List<Product> productDatabase)

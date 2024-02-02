@@ -14,7 +14,7 @@ namespace Grocery_list
             Name = name;
             PriceInPLN = priceInPLN;
         }
-        protected int Id { get; set; }
+        private int Id { get; set; }
         public string Name { get; set; }
         public double PriceInPLN { get; set; }
 
