@@ -26,6 +26,7 @@
                         break;
                     case "4":
                         FileService.SaveGroceryList(groceryList);
+                        FileService.SaveDatabase(list);
                         return;
                     default:
                         Console.WriteLine("\n Wrong option. Please choose again.");
@@ -111,8 +112,6 @@
             else
             {
                 productDatabase.Add(new Product(productDatabase.Count + 1, nameOfProduct, priceOfProduct));
-                var productList = new ProductsList(productDatabase);
-                FileService.SaveDatabase(productList);
             }
 
         }
@@ -126,8 +125,6 @@
             {
                 productDatabase.Remove(productToDelete);
                 Console.WriteLine("Product deleted successfully.");
-                var productList = new ProductsList(productDatabase);
-                FileService.SaveDatabase(productList);
             }
             else
             {
