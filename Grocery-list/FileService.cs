@@ -1,9 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Grocery_list
 {
@@ -39,6 +34,20 @@ namespace Grocery_list
                 Console.WriteLine($"An error occurred while saving the grocery list: {ex.Message}");
             }
         }
+
+        public static void SaveDatabase(ProductsList dataBase)
+        {
+            try
+            {
+                string json = JsonConvert.SerializeObject(dataBase, Formatting.Indented);
+                File.WriteAllText(ProductsDatabaseFilePath, json);
+                Console.WriteLine("Data base change saved successfully");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while saving the products database: {ex.Message}");
+            }
+        }
     }
- 
+
 }
