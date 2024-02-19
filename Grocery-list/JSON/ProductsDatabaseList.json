@@ -1,0 +1,209 @@
+{
+  "listOfProducts": [
+    {
+      "Id": 1,
+      "Name": "Chleb pszenny",
+      "PriceInPLN": 2.99
+    },
+    {
+      "Id": 2,
+      "Name": "Mleko UHT 2%",
+      "PriceInPLN": 2.49
+    },
+    {
+      "Id": 3,
+      "Name": "Jajka klasy L, 10 szt.",
+      "PriceInPLN": 4.99
+    },
+    {
+      "Id": 4,
+      "Name": "Pomidory malinowe",
+      "PriceInPLN": 6.79
+    },
+    {
+      "Id": 5,
+      "Name": "Banany",
+      "PriceInPLN": 3.49
+    },
+    {
+      "Id": 6,
+      "Name": "Mąka tortowa",
+      "PriceInPLN": 3.29
+    },
+    {
+      "Id": 7,
+      "Name": "Cukier biały",
+      "PriceInPLN": 2.19
+    },
+    {
+      "Id": 8,
+      "Name": "Papier toaletowy, 8 rolek",
+      "PriceInPLN": 9.99
+    },
+    {
+      "Id": 9,
+      "Name": "Płatki śniadaniowe owsiane",
+      "PriceInPLN": 5.79
+    },
+    {
+      "Id": 10,
+      "Name": "Ser żółty krojony",
+      "PriceInPLN": 7.49
+    },
+    {
+      "Id": 11,
+      "Name": "Kawa mielona",
+      "PriceInPLN": 12.99
+    },
+    {
+      "Id": 12,
+      "Name": "Herbata liściasta Earl Grey",
+      "PriceInPLN": 8.59
+    },
+    {
+      "Id": 13,
+      "Name": "Makaron spaghetti",
+      "PriceInPLN": 3.79
+    },
+    {
+      "Id": 14,
+      "Name": "Ryż biały długoziarnisty",
+      "PriceInPLN": 4.49
+    },
+    {
+      "Id": 15,
+      "Name": "Czosnek",
+      "PriceInPLN": 1.99
+    },
+    {
+      "Id": 16,
+      "Name": "Cebula",
+      "PriceInPLN": 1.29
+    },
+    {
+      "Id": 17,
+      "Name": "Papryka czerwona",
+      "PriceInPLN": 3.49
+    },
+    {
+      "Id": 18,
+      "Name": "Mleko kokosowe",
+      "PriceInPLN": 3.99
+    },
+    {
+      "Id": 19,
+      "Name": "Marchew",
+      "PriceInPLN": 2.59
+    },
+    {
+      "Id": 20,
+      "Name": "Oliwa z oliwek",
+      "PriceInPLN": 11.99
+    },
+    {
+      "Id": 21,
+      "Name": "Makrela wędzona",
+      "PriceInPLN": 8.79
+    },
+    {
+      "Id": 22,
+      "Name": "Piwo jasne butelkowe, 0,5l",
+      "PriceInPLN": 3.29
+    },
+    {
+      "Id": 23,
+      "Name": "Wódka czysta 0,5l",
+      "PriceInPLN": 21.99
+    },
+    {
+      "Id": 24,
+      "Name": "Wino czerwone wytrawne, 0,75l",
+      "PriceInPLN": 16.49
+    },
+    {
+      "Id": 25,
+      "Name": "Oregano suszone",
+      "PriceInPLN": 2.09
+    },
+    {
+      "Id": 26,
+      "Name": "Miód pszczeli",
+      "PriceInPLN": 15.99
+    },
+    {
+      "Id": 27,
+      "Name": "Chipsy ziemniaczane",
+      "PriceInPLN": 4.79
+    },
+    {
+      "Id": 28,
+      "Name": "Orzechy włoskie",
+      "PriceInPLN": 18.99
+    },
+    {
+      "Id": 29,
+      "Name": "Ketchup",
+      "PriceInPLN": 3.29
+    },
+    {
+      "Id": 30,
+      "Name": "Musztarda",
+      "PriceInPLN": 2.49
+    },
+    {
+      "Id": 31,
+      "Name": "Pepsi Cola, 2l",
+      "PriceInPLN": 3.99
+    },
+    {
+      "Id": 32,
+      "Name": "Chleb żytni",
+      "PriceInPLN": 3.49
+    },
+    {
+      "Id": 33,
+      "Name": "Czekolada mleczna",
+      "PriceInPLN": 4.99
+    },
+    {
+      "Id": 34,
+      "Name": "Ziemniaki",
+      "PriceInPLN": 2.89
+    },
+    {
+      "Id": 35,
+      "Name": "Jogurt naturalny 2%, 1l",
+      "PriceInPLN": 3.79
+    },
+    {
+      "Id": 36,
+      "Name": "Lody waniliowe, 1l",
+      "PriceInPLN": 8.99
+    },
+    {
+      "Id": 37,
+      "Name": "Makaron penne",
+      "PriceInPLN": 2.69
+    },
+    {
+      "Id": 38,
+      "Name": "Kiełbasa śląska",
+      "PriceInPLN": 9.49
+    },
+    {
+      "Id": 39,
+      "Name": "Chipsy tortilla",
+      "PriceInPLN": 5.29
+    },
+    {
+      "Id": 40,
+      "Name": "Herbatniki",
+      "PriceInPLN": 3.19
+    },
+    {
+      "Id": 41,
+      "Name": "Papierosy",
+      "PriceInPLN": 14.67
+    }
+  ]
+}
